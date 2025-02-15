@@ -1,7 +1,6 @@
 package com.example.todolist.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -10,8 +9,6 @@ import com.example.todolist.model.TaskItem
 import com.example.todolist.model.TaskItemRepository
 import kotlinx.coroutines.launch
 import java.time.LocalDate
-import java.time.LocalTime
-import java.util.UUID
 
 class TaskViewModel(private val repository: TaskItemRepository) : ViewModel() {
 
@@ -44,6 +41,7 @@ class TaskViewModel(private val repository: TaskItemRepository) : ViewModel() {
 
 }
 
+@Suppress("UNCHECKED_CAST")
 class TaskItemModelFactory(private val repository: TaskItemRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(TaskViewModel::class.java))

@@ -52,10 +52,15 @@ class TaskItemViewHolder(
             clickListener.editTaskItem(taskItem)
         }
 
+        binding.deleteButton.setOnClickListener {
+            clickListener.deleteTaskItem(taskItem)
+        }
+
+
         if (taskItem.isCompleted()) {
-//            binding.name.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-//            binding.desc.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-//            binding.dueTime.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            binding.name.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            binding.desc.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            binding.dueTime.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             val strikeColor = ContextCompat.getColor(binding.root.context, R.color.orange)
             applyColoredStrikeThrough(binding.name, taskItem.name, strikeColor)
             applyColoredStrikeThrough(binding.desc, taskItem.desc, strikeColor)
